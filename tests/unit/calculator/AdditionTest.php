@@ -10,10 +10,14 @@ class AdditionTest extends TestCase
     public function testAddsUpGivenOperands()
     {
         $addition = new Addition();
-
         $addition->setOperands([5, 10]);
 
         $this->assertEquals(15, $addition->calculate());
+
+        $addition = new Addition();
+        $addition->setOperands([5, 10, 5]);
+
+        $this->assertEquals(20, $addition->calculate());
     }
 
     public function testNoOperandsGivenThrowsExceptionWhenCalculation()
