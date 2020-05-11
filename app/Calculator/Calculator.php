@@ -48,4 +48,23 @@ class Calculator
     {
         return $this->operations;
     }
+
+    public function calculate()
+    {
+        if (count($this->operations) > 1) {
+            /*$result = null;
+            foreach ($this->operations as $operation) {
+                $result[] = $operation->calculate();
+            }
+
+            return $result;*/
+
+            // Instead of above commented code (line no 55-60) we can write simply like below
+            return array_map(function ($operation) {
+                return $operation->calculate();
+            }, $this->operations);
+        }
+
+        return $this->operations[0]->calculate();
+    }
 }
